@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liad Firouz - CV</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ספריות לייצור PDF ישיר -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+        /* ========================================== */
+        /* HEADER & NAVIGATION STYLES                 */
+        /* ========================================== */
+        .custom-nav-link {
+            color: #333;
+            background-color: transparent;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .custom-nav-link:not(.active-page):hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .custom-nav-link.active-page {
+            color: #0d6efd;
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .custom-brand {
+            color: #333;
+            margin: 0;
+            padding: 0 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .sticky-modern-header {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ========================================== */
+        /* CV PAGE SPECIFIC STYLES (A4 PROPORTIONED)  */
+        /* ========================================== */
+        .cv-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cv-container {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: row;
+        }
+
+        .cv-sidebar {
+            background-color: #111111 !important;
+            color: #f8f9fa;
+            width: 32%;
+            min-width: 32%;
+            padding: 2rem 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .cv-sidebar a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        .cv-sidebar a:hover {
+            text-decoration: underline;
+            color: #0d6efd;
+        }
+
+        .cv-main {
+            background-color: #ffffff !important;
+            color: #212529;
+            width: 68%;
+            padding: 2.5rem;
+            box-sizing: border-box;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #111;
+            font-size: 1.15rem;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .skill-list {
+            font-size: 0.8rem;
+            color: #adb5bd;
+            margin-bottom: 0.8rem;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- חיבור ומקום ייעודי ל-Header -->
+    <div id="header-placeholder"></div>
+
+    <main class="container py-4">
+
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bold mb-1">Liad Firouz</h1>
+            <p class="lead text-muted fs-6 mb-0">B.Sc. CS Student | Cyber Security Specialization & Software Development</p>
+        </div>
+
+        <div class="cv-wrapper">
+            <!-- אזור הקורות חיים שמומר לקובץ PDF -->
+            <div class="cv-container" id="cv-content">
+
+                <!-- SIDEBAR -->
+                <div class="cv-sidebar">
+                    <h5 class="fw-bold mb-3">Contact Info</h5>
+                    <ul class="list-unstyled mb-4 small">
+                        <li class="mb-2"><strong>Email:</strong><br><a href="mailto:Liad.Firouz@gmail.com">Liad.Firouz@gmail.com</a></li>
+                        <li class="mb-2"><strong>Phone:</strong><br>053-9803335</li>
+                        <li class="mb-2"><strong>LinkedIn:</strong><br><a href="https://linkedin.com/in/liad-firouz" target="_blank">linkedin.com/in/liad-firouz</a></li>
+                        <li class="mb-2"><strong>GitHub:</strong><br><a href="https://github.com/LiadFirouz" target="_blank">github.com/LiadFirouz</a></li>
+                        <li class="mb-2"><strong>Portfolio:</strong><br><a href="index.html">Portfolio Website</a></li>
+                    </ul>
+
+                    <h5 class="fw-bold mb-3">Skills</h5>
+                    <div class="mb-4">
+                        <div class="skill-category">Languages:</div>
+                        <div class="skill-list">C, JavaScript, Python, Java, C#</div>
+
+                        <div class="skill-category">Web Tech:</div>
+                        <div class="skill-list">Node.js, Express.js, HTML, CSS, Bootstrap</div>
+
+                        <div class="skill-category">Databases:</div>
+                        <div class="skill-list">SQL (PostgreSQL), Data Structures</div>
+
+                        <div class="skill-category">Tools & Env:</div>
+                        <div class="skill-list">Git, GitHub, VS Code, Linux</div>
+                    </div>
+
+                    <h5 class="fw-bold mb-2">Languages</h5>
+                    <ul class="list-unstyled mb-4 small text-light">
+                        <li><strong>Hebrew</strong> – Native</li>
+                        <li><strong>English</strong> – Fluent</li>
+                    </ul>
+
+                    <h5 class="fw-bold mb-2">Objective</h5>
+                    <p class="small text-light mb-0" style="font-size: 0.8rem; line-height: 1.4;">
+                        Seeking a junior role or internship in Cyber Security or Software Development. Eager to leverage
+                        low-level programming knowledge and full-stack capabilities to solve complex problems within
+                        an engineering team.
+                    </p>
+                </div>
+
+                <!-- MAIN CV CONTENT -->
+                <div class="cv-main">
+                    <h3 class="section-title">Summary</h3>
+                    <p class="small mb-4 text-dark" style="line-height: 1.5;">
+                        Motivated Computer Science student specializing in Cyber Security, with hands-on experience in
+                        both systems programming and full-stack web development. Proficient in C, Java, and modern web
+                        technologies, with a strong foundation in database architecture and version control. Possesses a
+                        technical background in computer and control systems, combining deep analytical problem-solving
+                        with a collaborative team-oriented approach.
+                    </p>
+
+                    <h3 class="section-title">Education</h3>
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-0">Computer Science Student – The Open University</h6>
+                        <p class="small text-muted mb-1">Oct 2022 – Present | Second-Year Student</p>
+                        <ul class="small mb-3 ps-3">
+                            <li>Pursuing a B.Sc. in Computer Science</li>
+                            <li><strong>Specialization:</strong> Cyber Security</li>
+                            <li><strong>Relevant Coursework:</strong> Linear Algebra, Database Systems, Data Structures</li>
+                        </ul>
+
+                        <h6 class="fw-bold mb-0">Engineering Technician Certificate – Ort Singalovski</h6>
+                        <p class="small text-muted mb-1">Sep 2018 – May 2019</p>
+                        <ul class="small mb-0 ps-3">
+                            <li>Completed practical training in software engineering fundamentals</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="section-title mt-4">Technical Projects</h3>
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-1">Custom Assembler Implementation (C Language)</h6>
+                        <ul class="small mb-0 ps-3">
+                            <li>Engineered a fully functional assembler project using C.</li>
+                            <li>Managed dynamic memory allocation, bitwise operations, and file handling.</li>
+                            <li>Maintained robust version control and project iterations utilizing Git.</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="section-title mt-4">Military Service</h3>
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-0">Combat Support – Israeli Defense Forces (IDF)</h6>
+                        <p class="small text-muted mb-1">Jan 2020 – Sep 2022</p>
+                        <ul class="small mb-0 ps-3">
+                            <li>Performed optical and arc testing for 120mm mortar systems</li>
+                            <li>Provided technical support in a combat unit</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="section-title mt-4">Work Experience</h3>
+                    <div class="mb-2">
+                        <h6 class="fw-bold mb-1">Technical Technician - Computer & Control Systems</h6>
+                        <ul class="small mb-2 ps-3">
+                            <li>Provided hands-on technical support and system maintenance.</li>
+                        </ul>
+
+                        <h6 class="fw-bold mb-1">Primary Education Teacher (Third Grade)</h6>
+                        <ul class="small mb-0 ps-3">
+                            <li>Developed pedagogical plans and fostered strong communication skills.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- כפתור ההורדה האוטומטית -->
+        <div class="text-center mt-4">
+            <button id="download-btn" class="btn btn-outline-dark fw-bold px-4 py-2">
+                Download as PDF
+            </button>
+        </div>
+
+    </main>
+
+    <!-- חיבור ומקום ייעודי ל-Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- סקריפט הורדה וטעינת רכיבים -->
+    <script>
+        // 1. טעינת Header ו-Footer
+        fetch('./public/header.html')
+            .then(response => response.ok ? response.text() : '')
+            .then(data => {
+                if (data) {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    const navLinks = document.querySelectorAll('.custom-nav-link');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-page');
+                        if (link.getAttribute('href') && link.getAttribute('href').includes('cv')) {
+                            link.classList.add('active-page');
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch('./public/footer.html')
+            .then(response => response.ok ? response.text() : '')
+            .then(data => {
+                if (data) document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        // 2. יצירת והורדת ה-PDF ישירות לתיקיית ההורדות
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const btn = this;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Generating PDF...';
+            btn.disabled = true;
+
+            const element = document.getElementById('cv-content');
+
+            // יצירת Canvas ברזולוציה גבוהה (Scale: 2)
+            html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#ffffff'
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                const { jsPDF } = window.jspdf;
+                
+                // יצירת קובץ PDF בפורמט A4
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                
+                const imgWidth = pdfWidth;
+                const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+                
+                let heightLeft = imgHeight;
+                let position = 0;
+
+                // הוספת התמונה לדף ושמירה על יחסי עמודים תקינים
+                pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pdfHeight;
+
+                while (heightLeft > 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pdfHeight;
+                }
+
+                // הורדה ישירה של הקובץ למחשב
+                pdf.save('Liad_Firouz_CV.pdf');
+
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }).catch(err => {
+                console.error('Error generating PDF:', err);
+                alert('An error occurred while generating the PDF.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+
+</html>

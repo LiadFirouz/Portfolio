@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liad Firouz - Portfolio</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -12,7 +13,7 @@
         /* ========================================== */
         /* HEADER & NAVIGATION STYLES                 */
         /* ========================================== */
-        
+
         /* Navigation Link Base Style */
         .custom-nav-link {
             color: #333;
@@ -49,58 +50,143 @@
         .sticky-modern-header {
             position: sticky;
             top: 0;
-            z-index: 1030; /* Ensures the header stays above all other content */
-            background-color: rgba(255, 255, 255, 0.90); /* Semi-transparent white background */
-            backdrop-filter: blur(10px); /* Blur effect for the content beneath */
-            -webkit-backdrop-filter: blur(10px); /* Safari support */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* Subtle shadow to separate it from the page */
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
         /* ========================================== */
         /* MAIN CONTENT & COMPONENTS STYLES           */
         /* ========================================== */
 
-        /* Container Layouts */
-        .main-content { min-height: 300px; height: auto; }
-        .black-banner { background-color: black; color: white; }
-        .hero-banner { height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-
-        /* Profile Image */
-        .profile-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid #000; }
-
-        /* Cards & Components */
-        .card { height: 100%; transition: transform 0.2s; }
-        .card-img-top { object-fit: cover; height: 225px; }
-        .icon-square { height: 30px; }
-
-        /* General Button Styles */
-        .custom-btn { transition: all 0.3s ease; color: #000; }
-        .custom-btn:hover { background-color: #000; color: #fff; }
-        .cv-btn { color: #0d6efd; }
-        .cv-btn:hover { background-color: #0d6efd; color: #fff; }
-        .custom-btn, .cv-btn { display: inline-flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; }
-
-        /* Modern Card Styling */
-        .project-card { border-radius: 16px !important; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important; }
-
-        /* Technology tags styling */
-        .badge-tech { background: #f0f2f5; color: #444; font-size: 0.75rem; padding: 5px 12px; border-radius: 20px; margin-right: 5px; font-weight: 600; }
-
-        /* Modern Section Title */
-        .section-title-wrapper { text-align: center; padding: 5rem 0 3rem; position: relative; }
-        .tech-badge-title { display: inline-block; font-family: monospace; color: #0d6efd; padding: 0.3rem 1rem; border-radius: 50px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 1rem; text-transform: uppercase; }
-        
-        .gradient-title {
-            font-size: 1.4rem; font-weight: 800;
-            background: linear-gradient(135deg, #000000 0%, #333333 40%, #0d6efd 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem; letter-spacing: -1px;
+        .main-content {
+            min-height: 300px;
+            height: auto;
         }
 
-        /* Elevated Contact Button */
-        .contact-btn { transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 50px; padding: 0.8rem 2.5rem; }
-        .contact-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2); }
+        .black-banner {
+            background-color: black;
+            color: white;
+        }
+
+        .hero-banner {
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #000;
+        }
+
+        .card {
+            height: 100%;
+            transition: transform 0.2s;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 225px;
+        }
+
+        .icon-square {
+            height: 30px;
+        }
+
+        .custom-btn {
+            transition: all 0.3s ease;
+            color: #000;
+        }
+
+        .custom-btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .cv-btn {
+            color: #0d6efd;
+        }
+
+        .cv-btn:hover {
+            background-color: #0d6efd;
+            color: #fff;
+        }
+
+        .custom-btn,
+        .cv-btn {
+            display: inline-flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+
+        .project-card {
+            border-radius: 16px !important;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .badge-tech {
+            background: #f0f2f5;
+            color: #444;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-right: 5px;
+            font-weight: 600;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            padding: 5rem 0 3rem;
+            position: relative;
+        }
+
+        .tech-badge-title {
+            display: inline-block;
+            font-family: monospace;
+            color: #0d6efd;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .gradient-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #000000 0%, #333333 40%, #0d6efd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .contact-btn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 50px;
+            padding: 0.8rem 2.5rem;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+        }
     </style>
 </head>
 
@@ -109,11 +195,11 @@
     <!-- HEADER SECTION -->
     <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom sticky-modern-header px-3">
         <h3 class="custom-brand">LF</h3>
-        
+
         <nav class="nav">
             <a href="index.html" class="custom-nav-link active-page">Home</a>
             <a href="about.html" class="custom-nav-link">About</a>
-            <a href="./assets/CV.pdf" target="_blank" class="custom-nav-link">CV</a>
+            <a tag href="cv.html" target="_blank" class="custom-nav-link">CV</a>
         </nav>
     </header>
 
@@ -121,17 +207,17 @@
     <main class="main-content">
         <div class="d-flex flex-column align-items-center py-5 px-3">
             <div class="container text-center mb-4">
-                <img src="./src/profile.jpeg" alt="Profile Picture" class="profile-img" />
+                <img src="./public/profile.jpeg" alt="Profile Picture" class="profile-img" />
             </div>
 
-            <h1 class="text-center">Hello, I'm Liad Firouz 2.0 ;)</h1>
+            <h1 class="text-center">Hello, I'm Liad Firouz 3.0 ;)</h1>
             <p class="lead text-center fw-medium mt-2">
                 ⧼ B.Sc. Computer Science Student | Cyber Security Specialization & Software Development ⧽
             </p>
 
             <div class="d-flex justify-content-center align-items-center mt-3 gap-3">
                 <a href="about.html" class="btn btn-lg fw-bold custom-btn">About Me</a>
-                <a href="./assets/CV.pdf" target="_blank" class="btn btn-lg fw-bold custom-btn cv-btn">View My CV</a>
+                <a href="cv.html" class="btn btn-lg fw-bold custom-btn cv-btn">View My CV</a>
                 <a href="#projects" class="btn btn-lg fw-bold custom-btn">View My Projects</a>
             </div>
         </div>
@@ -140,11 +226,12 @@
     <!-- TECH STACK BANNER -->
     <div class="black-banner">
         <div class="container px-4 py-5" id="hanging-icons">
-            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 d-flex justify-content-center">
-                
+            <div
+                class="row g-4 py-5 row-cols-1 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 d-flex justify-content-center">
+
                 <div class="col d-flex justify-content-center">
                     <div class="icon-square d-inline-flex fs-4 me-3">
-                        <img src="./home-images/cpu.png" alt="Tech Stack" height="30px">
+                        <img src="./public/home-images/cpu.png" alt="Tech Stack" height="30px">
                     </div>
                     <div>
                         <h3 class="fs-2">Tech Stack</h3>
@@ -155,7 +242,7 @@
 
                 <div class="col d-flex justify-content-center">
                     <div class="icon-square d-inline-flex fs-4 me-3">
-                        <img src="./home-images/framework.png" alt="Frameworks" height="30px">
+                        <img src="./public/home-images/framework.png" alt="Frameworks" height="30px">
                     </div>
                     <div>
                         <h3 class="fs-2">Tools & Env</h3>
@@ -167,7 +254,7 @@
 
                 <div class="col d-flex justify-content-center">
                     <div class="icon-square d-inline-flex me-3">
-                        <img src="./home-images/check.png" alt="Qualities" height="30px">
+                        <img src="./public/home-images/check.png" alt="Qualities" height="30px">
                     </div>
                     <div>
                         <h3 class="fs-2">Soft Skills</h3>
@@ -188,12 +275,13 @@
                 <h1 class="tech-badge-title">&lt;/Portfolio&gt;</h1>
                 <h1 class="gradient-title">Featured Projects</h1>
             </div>
-            
+
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <!-- Project 1: Assembler -->
                 <div class="col">
                     <div class="card project-card shadow-sm h-100">
-                        <div class="bg-dark text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <div class="bg-dark text-white d-flex align-items-center justify-content-center"
+                            style="height: 200px;">
                             <span class="fs-4 fw-bold">Assembler</span>
                         </div>
                         <div class="card-body">
@@ -201,10 +289,13 @@
                                 <span class="badge-tech">C</span><span class="badge-tech">Systems</span>
                             </div>
                             <h5 class="fw-bold">Custom Assembler</h5>
-                            <p class="card-text text-muted small">A robust, two-pass assembler built in C featuring dynamic memory allocation and bitwise logic.</p>
+                            <p class="card-text text-muted small">A robust, two-pass assembler built in C featuring
+                                dynamic memory allocation and bitwise logic.</p>
                             <div class="d-flex gap-2 mt-3">
-                                <a href="assembler-project.html" class="btn btn-dark btn-sm rounded-pill px-3">View Details</a>
-                                <a href="https://github.com/LiadFirouz/Assembler" target="_blank" class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
+                                <a href="assembler-project.html" class="btn btn-dark btn-sm rounded-pill px-3">View
+                                    Details</a>
+                                <a href="https://github.com/LiadFirouz/Assembler" target="_blank"
+                                    class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -213,16 +304,20 @@
                 <!-- Project 2: Stock Prediction -->
                 <div class="col">
                     <div class="card project-card shadow-sm h-100">
-                        <img src="./home-images/Stock-Predictor-img.png" class="card-img-top" alt="Stock Predictor">
+                        <img src="./public/home-images/Stock-Predictor-img.png" class="card-img-top"
+                            alt="Stock Predictor">
                         <div class="card-body">
                             <div class="mb-3">
                                 <span class="badge-tech">Python</span><span class="badge-tech">ML</span>
                             </div>
                             <h5 class="fw-bold">Stock Prediction</h5>
-                            <p class="card-text text-muted small">Machine learning model built with Python to analyze market trends and historical financial data.</p>
+                            <p class="card-text text-muted small">Machine learning model built with Python to analyze
+                                market trends and historical financial data.</p>
                             <div class="d-flex gap-2 mt-3">
-                                <a href="stock-predictor-project.html" class="btn btn-dark btn-sm rounded-pill px-3">View Details</a>
-                                <a href="https://github.com/LiadFirouz/StockPricePrediction" target="_blank" class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
+                                <a href="stock-predictor-project.html"
+                                    class="btn btn-dark btn-sm rounded-pill px-3">View Details</a>
+                                <a href="https://github.com/LiadFirouz/StockPricePrediction" target="_blank"
+                                    class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -231,16 +326,19 @@
                 <!-- Project 3: Simon Game -->
                 <div class="col">
                     <div class="card project-card shadow-sm h-100">
-                        <img src="./home-images/simon-game-img.png" class="card-img-top" alt="Simon Game">
+                        <img src="./public/home-images/simon-game-img.png" class="card-img-top" alt="Simon Game">
                         <div class="card-body">
                             <div class="mb-3">
                                 <span class="badge-tech">JavaScript</span><span class="badge-tech">DOM</span>
                             </div>
                             <h5 class="fw-bold">Simon Game</h5>
-                            <p class="card-text text-muted small">Interactive memory game demonstrating asynchronous JavaScript logic and DOM manipulation.</p>
+                            <p class="card-text text-muted small">Interactive memory game demonstrating asynchronous
+                                JavaScript logic and DOM manipulation.</p>
                             <div class="d-flex gap-2 mt-3">
-                                <a href="simon-game-project.html" class="btn btn-dark btn-sm rounded-pill px-3">View Details</a>
-                                <a href="https://liadfirouz.github.io/Simon-Game/" target="_blank" class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
+                                <a href="simon-game-project.html" class="btn btn-dark btn-sm rounded-pill px-3">View
+                                    Details</a>
+                                <a href="https://liadfirouz.github.io/Simon-Game/" target="_blank"
+                                    class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -254,8 +352,10 @@
         <div class="container my-5">
             <div class="text-center">
                 <h2 class="fw-bold mb-3">Let's Build Something Together</h2>
-                <p class="lead text-muted mb-4">I'm actively seeking opportunities in Software Development and Cyber Security.</p>
-                <a href="mailto:liad.firouz@gmail.com" class="btn btn-primary btn-lg fw-bold contact-btn">Get In Touch</a>
+                <p class="lead text-muted mb-4">I'm actively seeking opportunities in Software Development and Cyber
+                    Security.</p>
+                <a href="mailto:liad.firouz@gmail.com" class="btn btn-primary btn-lg fw-bold contact-btn">Get In
+                    Touch</a>
             </div>
         </div>
     </div>
@@ -266,16 +366,16 @@
             <div class="col-md-4 d-flex ">
                 <span class="text-muted">© Liad Firouz 2026</span>
             </div>
-          
+
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                 <li class="ms-3">
                     <a target="_blank" class="text-muted" href="http://www.linkedin.com/in/liad-firouz">
-                        <img src="./footer-images/linkedin.svg" alt="LinkedIn" height="30px">
+                        <img src="./public/footer-images/linkedin.svg" alt="LinkedIn" height="30px">
                     </a>
                 </li>
                 <li class="ms-3">
                     <a target="_blank" class="text-muted" href="http://www.github.com/LiadFirouz">
-                        <img src="./footer-images/github.svg" alt="GitHub" height="30px">
+                        <img src="./public/footer-images/github.svg" alt="GitHub" height="30px">
                     </a>
                 </li>
             </ul>
@@ -285,4 +385,5 @@
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
