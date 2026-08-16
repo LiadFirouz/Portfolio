@@ -124,6 +124,41 @@
             color: #adb5bd;
             margin-bottom: 0.8rem;
         }
+
+        /* ========================================== */
+        /* MOBILE RESPONSIVENESS                      */
+        /* ========================================== */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column; /* Stack vertically on mobile */
+            }
+            .cv-sidebar {
+                width: 100%;
+                min-width: 100%;
+                padding: 2rem;
+            }
+            .cv-main {
+                width: 100%;
+                padding: 2rem;
+            }
+        }
+
+        /* ========================================== */
+        /* PDF EXPORT OVERRIDE CLASS                  */
+        /* ========================================== */
+        /* Forces desktop layout specifically for PDF generation */
+        .pdf-export-mode {
+            flex-direction: row !important;
+            width: 900px !important;
+            max-width: none !important;
+        }
+        .pdf-export-mode .cv-sidebar {
+            width: 32% !important;
+            min-width: 32% !important;
+        }
+        .pdf-export-mode .cv-main {
+            width: 68% !important;
+        }
     </style>
 </head>
 
@@ -310,45 +345,52 @@
             btn.disabled = true;
 
             const element = document.getElementById('cv-content');
+            
+            // Force desktop layout before capturing (fixes PDF formatting on mobile)
+            element.classList.add('pdf-export-mode');
 
-            html2canvas(element, {
-                scale: 2,
-                useCORS: true,
-                backgroundColor: '#ffffff'
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/jpeg', 1.0);
-                const { jsPDF } = window.jspdf;
-                
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = pdf.internal.pageSize.getHeight();
-                
-                const imgWidth = pdfWidth;
-                const imgHeight = (canvas.height * pdfWidth) / canvas.width;
-                
-                let heightLeft = imgHeight;
-                let position = 0;
+            // Timeout ensures the DOM updates the CSS classes before capturing
+            setTimeout(() => {
+                html2canvas(element, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#ffffff'
+                }).then(canvas => {
+                    const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                    const { jsPDF } = window.jspdf;
+                    
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
+                    
+                    const imgWidth = pdfWidth;
+                    const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+                    
+                    let heightLeft = imgHeight;
+                    let position = 0;
 
-                pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pdfHeight;
-
-                while (heightLeft > 0) {
-                    position = heightLeft - imgHeight;
-                    pdf.addPage();
                     pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
                     heightLeft -= pdfHeight;
-                }
 
-                pdf.save('Liad_Firouz_CV.pdf');
+                    while (heightLeft > 0) {
+                        position = heightLeft - imgHeight;
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pdfHeight;
+                    }
 
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }).catch(err => {
-                console.error('Error generating PDF:', err);
-                alert('An error occurred while generating the PDF.');
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            });
+                    pdf.save('Liad_Firouz_CV.pdf');
+
+                }).catch(err => {
+                    console.error('Error generating PDF:', err);
+                    alert('An error occurred while generating the PDF.');
+                }).finally(() => {
+                    // Restore original layout and button state
+                    element.classList.remove('pdf-export-mode');
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                });
+            }, 100);
         });
     </script>
 </body>
