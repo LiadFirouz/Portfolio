@@ -57,20 +57,44 @@
         /* ========================================== */
         /* ABOUT PAGE STYLING                         */
         /* ========================================== */
+        .about-container {
+            min-height: calc(100vh - 200px);
+        }
+
         .profile-img-about {
             border: 4px solid #000;
             object-fit: cover;
             width: 250px;
             height: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .about-container {
-            min-height: calc(100vh - 200px);
+        .profile-img-about:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
         }
 
+        .highlight-item {
+            background-color: #f8f9fa;
+            border-left: 3px solid #0d6efd;
+            border-radius: 0 8px 8px 0;
+            padding: 0.75rem 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .highlight-item:hover {
+            background-color: #f1f3f5;
+        }
+
+        /* Standardized Action Buttons */
         .custom-btn {
             transition: all 0.3s ease;
             color: #000;
+            border-radius: 8px;
+            display: inline-flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
         }
 
         .custom-btn:hover {
@@ -86,14 +110,7 @@
         .cv-btn:hover {
             background-color: #0d6efd;
             color: #fff;
-        }
-
-        .custom-btn,
-        .cv-btn {
-            display: inline-flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center !important;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
         }
     </style>
 </head>
@@ -105,42 +122,62 @@
 
     <!-- Main Content Section -->
     <main class="container py-5 about-container">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-4">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
 
+            <!-- Profile Image Column -->
             <div class="col-10 col-sm-8 col-lg-4 mx-auto text-center">
-                <!-- Profile Image -->
                 <img src="./public/profile.jpeg"
-                    class="d-block mx-lg-auto img-fluid rounded-circle shadow-sm profile-img-about" alt="Liad Firouz"
+                    class="d-block mx-lg-auto img-fluid rounded-circle shadow-sm profile-img-about" 
+                    alt="Liad Firouz"
                     loading="lazy">
             </div>
 
+            <!-- Text Content Column -->
             <div class="col-lg-8">
                 <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">About Me</h1>
-                <p class="lead text-muted">
+                
+                <p class="lead text-muted mb-4">
                     I am a Computer Science student specializing in Cyber Security, driven by a deep fascination
                     with low-level software architectures, systems programming, and robust digital defense
                     paradigms.
                 </p>
-                <p class="text-body-secondary fs-5">
+
+                <p class="text-body-secondary fs-6 mb-3">
                     My academic path involves rigorous theoretical modeling paired with intensive hands-on
-                    development.
-                    From engineering a custom two-pass assembler in C to developing predictive data models in
-                    Python,
-                    I thrive on breaking down complex problems into clean, optimized, and secure logical structures.
+                    development. From engineering a custom two-pass assembler in C to developing predictive data models in
+                    Python, I thrive on breaking down complex problems into clean, optimized, and secure logical structures.
                 </p>
-                <p class="text-body-secondary fs-5">
+
+                <p class="text-body-secondary fs-6 mb-4">
                     Parallel to my technical track, I leverage strong leadership and communicative dynamics as an
                     instructor, translating abstract and intricate concepts into highly accessible structured
-                    pathways.
-                    This combination allows me to approach engineering challenges with both technical precision and
+                    pathways. This combination allows me to approach engineering challenges with both technical precision and
                     systemic clarity.
                 </p>
 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-                    <a href="cv.html" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Review My CV</a>
+                <!-- Key Highlights List -->
+                <ul class="list-unstyled mb-4 d-flex flex-column gap-2">
+                    <li class="d-flex align-items-center highlight-item">
+                        <span class="text-primary me-2 fs-5">🔹</span>
+                        <span class="small"><strong>Core Focus:</strong> Systems Programming (C), Cyber Security &amp; Network Analysis.</span>
+                    </li>
+                    <li class="d-flex align-items-center highlight-item">
+                        <span class="text-primary me-2 fs-5">🔹</span>
+                        <span class="small"><strong>Key Strength:</strong> Bridging low-level execution with high-level analytical modeling.</span>
+                    </li>
+                    <li class="d-flex align-items-center highlight-item">
+                        <span class="text-primary me-2 fs-5">🔹</span>
+                        <span class="small"><strong>Leadership:</strong> Proven background in technical instruction and cross-functional communication.</span>
+                    </li>
+                </ul>
+
+                <!-- Action Buttons -->
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="/cv" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Review My CV</a>
                     <a href="mailto:liad.firouz@gmail.com" class="btn btn-lg fw-bold custom-btn cv-btn px-4">Get In Touch</a>
                 </div>
             </div>
+
         </div>
     </main>
 
