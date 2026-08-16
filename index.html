@@ -14,7 +14,6 @@
         /* HEADER & NAVIGATION STYLES                 */
         /* ========================================== */
 
-        /* Navigation Link Base Style */
         .custom-nav-link {
             color: #333;
             background-color: transparent;
@@ -192,16 +191,8 @@
 
 <body>
 
-    <!-- HEADER SECTION -->
-    <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom sticky-modern-header px-3">
-        <h3 class="custom-brand">LF</h3>
-
-        <nav class="nav">
-            <a href="index.html" class="custom-nav-link active-page">Home</a>
-            <a href="about.html" class="custom-nav-link">About</a>
-            <a tag href="cv.html" target="_blank" class="custom-nav-link">CV</a>
-        </nav>
-    </header>
+    <!-- 1. Placeholder for the Header -->
+    <div id="header-placeholder"></div>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
@@ -267,33 +258,30 @@
             </div>
         </div>
     </div>
-
     <!-- PORTFOLIO SECTION -->
     <div class="album bg-body-tertiary">
         <div class="container pb-5">
             <div class="section-title-wrapper" id="projects">
                 <h1 class="tech-badge-title">&lt;/Portfolio&gt;</h1>
-                <h1 class="gradient-title">Featured Projects</h1>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <!-- Project 1: Assembler -->
                 <div class="col">
                     <div class="card project-card shadow-sm h-100">
                         <div class="bg-dark text-white d-flex align-items-center justify-content-center"
-                            style="height: 200px;">
+                            style="height: 225px;">
                             <span class="fs-4 fw-bold">Assembler</span>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <div class="mb-3">
                                 <span class="badge-tech">C</span><span class="badge-tech">Systems</span>
                             </div>
-                            <h5 class="fw-bold">Custom Assembler</h5>
+                            <h5 class="fw-bold">Assembler Compiler</h5>
                             <p class="card-text text-muted small">A robust, two-pass assembler built in C featuring
                                 dynamic memory allocation and bitwise logic.</p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="assembler-project.html" class="btn btn-dark btn-sm rounded-pill px-3">View
-                                    Details</a>
+                            <div class="d-flex gap-2 mt-auto pt-3">
+                                <a href="assembler-project.html" class="btn btn-dark btn-sm rounded-pill px-3 disabled">View Details</a>
                                 <a href="https://github.com/LiadFirouz/Assembler" target="_blank"
                                     class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
                             </div>
@@ -306,16 +294,16 @@
                     <div class="card project-card shadow-sm h-100">
                         <img src="./public/home-images/Stock-Predictor-img.png" class="card-img-top"
                             alt="Stock Predictor">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <div class="mb-3">
                                 <span class="badge-tech">Python</span><span class="badge-tech">ML</span>
                             </div>
                             <h5 class="fw-bold">Stock Prediction</h5>
                             <p class="card-text text-muted small">Machine learning model built with Python to analyze
                                 market trends and historical financial data.</p>
-                            <div class="d-flex gap-2 mt-3">
+                            <div class="d-flex gap-2 mt-auto pt-3">
                                 <a href="stock-predictor-project.html"
-                                    class="btn btn-dark btn-sm rounded-pill px-3">View Details</a>
+                                    class="btn btn-dark btn-sm rounded-pill px-3 disabled">View Details</a>
                                 <a href="https://github.com/LiadFirouz/StockPricePrediction" target="_blank"
                                     class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
                             </div>
@@ -327,15 +315,15 @@
                 <div class="col">
                     <div class="card project-card shadow-sm h-100">
                         <img src="./public/home-images/simon-game-img.png" class="card-img-top" alt="Simon Game">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <div class="mb-3">
                                 <span class="badge-tech">JavaScript</span><span class="badge-tech">DOM</span>
                             </div>
                             <h5 class="fw-bold">Simon Game</h5>
                             <p class="card-text text-muted small">Interactive memory game demonstrating asynchronous
                                 JavaScript logic and DOM manipulation.</p>
-                            <div class="d-flex gap-2 mt-3">
-                                <a href="simon-game-project.html" class="btn btn-dark btn-sm rounded-pill px-3">View
+                            <div class="d-flex gap-2 mt-auto pt-3">
+                                <a href="simon-game-project.html" class="btn btn-dark btn-sm rounded-pill px-3 disabled">View
                                     Details</a>
                                 <a href="https://liadfirouz.github.io/Simon-Game/" target="_blank"
                                     class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
@@ -343,6 +331,33 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 4: Network Anomaly -->
+                <div class="col">
+                    <div class="card project-card shadow-sm h-100">
+                        <!-- Replace the image with the actual path once you have one -->
+                        <div class="bg-secondary text-white d-flex align-items-center justify-content-center"
+                            style="height: 225px;">
+                            <span class="fs-4 fw-bold">Network Anomaly</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="mb-3">
+                                <span class="badge-tech">Python</span><span class="badge-tech">Cyber</span><span
+                                    class="badge-tech">ML</span>
+                            </div>
+                            <h5 class="fw-bold">Anomaly Detection</h5>
+                            <p class="card-text text-muted small">An analytical engine utilizing an Isolation Forest
+                                model to flag suspicious network packets and detect traffic anomalies.</p>
+                            <div class="d-flex gap-2 mt-auto pt-3">
+                                <a href="network-anomaly-project.html"
+                                    class="btn btn-dark btn-sm rounded-pill px-3 disabled">View Details</a>
+                                <a href="https://github.com/LiadFirouz/Network-Anomaly" target="_blank"
+                                    class="btn btn-outline-secondary btn-sm rounded-pill px-3">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -360,30 +375,46 @@
         </div>
     </div>
 
-    <!-- FOOTER SECTION -->
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 mb-4">
-            <div class="col-md-4 d-flex ">
-                <span class="text-muted">© Liad Firouz 2026</span>
-            </div>
-
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3">
-                    <a target="_blank" class="text-muted" href="http://www.linkedin.com/in/liad-firouz">
-                        <img src="./public/footer-images/linkedin.svg" alt="LinkedIn" height="30px">
-                    </a>
-                </li>
-                <li class="ms-3">
-                    <a target="_blank" class="text-muted" href="http://www.github.com/LiadFirouz">
-                        <img src="./public/footer-images/github.svg" alt="GitHub" height="30px">
-                    </a>
-                </li>
-            </ul>
-        </footer>
-    </div>
+    <!-- 2. Placeholder for the Footer -->
+    <div id="footer-placeholder"></div>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 3. Script that loads header/footer files and automatically updates the active tab -->
+    <script>
+        // Fetch and load the Header
+        fetch('./header.html')
+            .then(res => {
+                if (!res.ok) throw new Error('Could not load header');
+                return res.text();
+            })
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+
+                // Mark the current page as active in the navigation
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.custom-nav-link');
+                navLinks.forEach(link => {
+                    link.classList.remove('active-page');
+                    if (link.getAttribute('href') === currentPage || (currentPage === '' && link.getAttribute('href') === 'index.html')) {
+                        link.classList.add('active-page');
+                    }
+                });
+            })
+            .catch(err => console.error(err));
+
+        // Fetch and load the Footer
+        fetch('./footer.html')
+            .then(res => {
+                if (!res.ok) throw new Error('Could not load footer');
+                return res.text();
+            })
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error(err));
+    </script>
 </body>
 
 </html>

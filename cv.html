@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- ספריות לייצור PDF ישיר -->
+    <!-- Libraries for Client-Side PDF Generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
@@ -129,7 +129,7 @@
 
 <body class="bg-light">
 
-    <!-- חיבור ומקום ייעודי ל-Header -->
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
     <main class="container py-4">
@@ -140,10 +140,10 @@
         </div>
 
         <div class="cv-wrapper">
-            <!-- אזור הקורות חיים שמומר לקובץ PDF -->
+            <!-- CV Container to be Exported as PDF -->
             <div class="cv-container" id="cv-content">
 
-                <!-- SIDEBAR -->
+                <!-- Sidebar Section -->
                 <div class="cv-sidebar">
                     <h5 class="fw-bold mb-3">Contact Info</h5>
                     <ul class="list-unstyled mb-4 small">
@@ -183,7 +183,7 @@
                     </p>
                 </div>
 
-                <!-- MAIN CV CONTENT -->
+                <!-- Main Content Section -->
                 <div class="cv-main">
                     <h3 class="section-title">Summary</h3>
                     <p class="small mb-4 text-dark" style="line-height: 1.5;">
@@ -214,10 +214,16 @@
                     <h3 class="section-title mt-4">Technical Projects</h3>
                     <div class="mb-4">
                         <h6 class="fw-bold mb-1">Custom Assembler Implementation (C Language)</h6>
-                        <ul class="small mb-0 ps-3">
-                            <li>Engineered a fully functional assembler project using C.</li>
+                        <ul class="small mb-2 ps-3">
+                            <li>Engineered a fully functional two-pass assembler project using C.</li>
                             <li>Managed dynamic memory allocation, bitwise operations, and file handling.</li>
                             <li>Maintained robust version control and project iterations utilizing Git.</li>
+                        </ul>
+
+                        <h6 class="fw-bold mb-1">Network Anomaly Detection (Python & Machine Learning)</h6>
+                        <ul class="small mb-0 ps-3">
+                            <li>Developed an analytical engine using an Isolation Forest model to detect suspicious packet anomalies.</li>
+                            <li>Processed and visualized network traffic datasets to extract statistical features.</li>
                         </ul>
                     </div>
 
@@ -248,7 +254,7 @@
             </div>
         </div>
 
-        <!-- כפתור ההורדה האוטומטית -->
+        <!-- Download Action Button -->
         <div class="text-center mt-4">
             <button id="download-btn" class="btn btn-outline-dark fw-bold px-4 py-2">
                 Download as PDF
@@ -257,39 +263,46 @@
 
     </main>
 
-    <!-- חיבור ומקום ייעודי ל-Footer -->
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- סקריפט הורדה וטעינת רכיבים -->
+    <!-- Layout Loader & PDF Generation Script -->
     <script>
-        // 1. טעינת Header ו-Footer
-        fetch('./public/header.html')
-            .then(response => response.ok ? response.text() : '')
-            .then(data => {
-                if (data) {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                    const navLinks = document.querySelectorAll('.custom-nav-link');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active-page');
-                        if (link.getAttribute('href') && link.getAttribute('href').includes('cv')) {
-                            link.classList.add('active-page');
-                        }
-                    });
-                }
+        // Load Header Partial
+        fetch('./header.html')
+            .then(res => {
+                if (!res.ok) throw new Error('Could not load header');
+                return res.text();
             })
-            .catch(error => console.error('Error loading header:', error));
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
 
-        fetch('./public/footer.html')
-            .then(response => response.ok ? response.text() : '')
-            .then(data => {
-                if (data) document.getElementById('footer-placeholder').innerHTML = data;
+                // Highlight active navigation link
+                const navLinks = document.querySelectorAll('.custom-nav-link');
+                navLinks.forEach(link => {
+                    link.classList.remove('active-page');
+                    if (link.getAttribute('href') && link.getAttribute('href').includes('cv')) {
+                        link.classList.add('active-page');
+                    }
+                });
             })
-            .catch(error => console.error('Error loading footer:', error));
+            .catch(err => console.error(err));
 
-        // 2. יצירת והורדת ה-PDF ישירות לתיקיית ההורדות
+        // Load Footer Partial
+        fetch('./footer.html')
+            .then(res => {
+                if (!res.ok) throw new Error('Could not load footer');
+                return res.text();
+            })
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error(err));
+
+        // PDF Generation and Direct Download Logic
         document.getElementById('download-btn').addEventListener('click', function() {
             const btn = this;
             const originalText = btn.innerHTML;
@@ -298,7 +311,6 @@
 
             const element = document.getElementById('cv-content');
 
-            // יצירת Canvas ברזולוציה גבוהה (Scale: 2)
             html2canvas(element, {
                 scale: 2,
                 useCORS: true,
@@ -307,7 +319,6 @@
                 const imgData = canvas.toDataURL('image/jpeg', 1.0);
                 const { jsPDF } = window.jspdf;
                 
-                // יצירת קובץ PDF בפורמט A4
                 const pdf = new jsPDF('p', 'mm', 'a4');
                 const pdfWidth = pdf.internal.pageSize.getWidth();
                 const pdfHeight = pdf.internal.pageSize.getHeight();
@@ -318,7 +329,6 @@
                 let heightLeft = imgHeight;
                 let position = 0;
 
-                // הוספת התמונה לדף ושמירה על יחסי עמודים תקינים
                 pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
                 heightLeft -= pdfHeight;
 
@@ -329,7 +339,6 @@
                     heightLeft -= pdfHeight;
                 }
 
-                // הורדה ישירה של הקובץ למחשב
                 pdf.save('Liad_Firouz_CV.pdf');
 
                 btn.innerHTML = originalText;
