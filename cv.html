@@ -29,6 +29,20 @@
             border: 1px solid transparent;
         }
 
+        /* Make the placeholder container sticky at the top */
+#header-placeholder {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    width: 100%;
+}
+
+/* Ensure the header inside fills the space without extra margin breaking the layout */
+#header-placeholder .sticky-modern-header {
+    position: relative; /* Let the placeholder handle the stickiness */
+    margin-bottom: 0 !important; /* Move margin to your hero section instead */
+}
+
         .custom-nav-link:not(.active-page):hover {
             background-color: #000;
             color: #fff;

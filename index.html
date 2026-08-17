@@ -55,16 +55,19 @@
             font-size: 1.5rem;
         }
 
-        /* Sticky Modern Header */
-        .sticky-modern-header {
-            position: sticky;
-            top: 0;
-            z-index: 1030;
-            background-color: rgba(255, 255, 255, 0.90);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-        }
+        /* Make the placeholder container sticky at the top */
+#header-placeholder {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    width: 100%;
+}
+
+/* Ensure the header inside fills the space without extra margin breaking the layout */
+#header-placeholder .sticky-modern-header {
+    position: relative; /* Let the placeholder handle the stickiness */
+    margin-bottom: 0 !important; /* Move margin to your hero section instead */
+}
 
         /* ========================================== */
         /* MAIN CONTENT & HERO SECTION                */
@@ -127,7 +130,7 @@
         }
 
         .icon-square {
-            height: 30px;
+            height: 200px;
         }
 
         /* ========================================== */
@@ -223,8 +226,6 @@
             </div>
 
             <h1 class="display-5 fw-bold text-center mb-1">Hi, I'm Liad Firouz</h1>
-            <h4 class="text-body-secondary fw-semibold text-center mb-2">Software Developer &amp; Cyber Security Student
-            </h4>
 
             <p class="text-muted text-center fs-6 mb-4">
                 B.Sc. Computer Science Student | Cyber Security Specialization &amp; Software Development
@@ -239,61 +240,77 @@
     </main>
 
     <!-- TECH STACK BANNER -->
-    <div class="black-banner">
-        <div class="container px-3 px-md-4 py-4 py-md-5" id="hanging-icons">
-            <div class="row g-3 g-md-4 row-cols-2 row-cols-lg-4 justify-content-center">
+<div class="black-banner">
+    <div class="container px-3 px-md-4 py-5 py-md-5" id="hanging-icons">
+        <div class="row g-3 g-md-4 row-cols-2 row-cols-lg-4 justify-content-center">
 
-                <!-- Column 1: Core Languages -->
-                <div class="col d-flex align-items-start">
-                    <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
-                        <img src="./public/home-images/cpu.png" alt="Tech Stack" height="26px">
-                    </div>
-                    <div>
-                        <h3 class="fs-5 fw-bold mb-1 mb-md-2 text-white">Tech Stack</h3>
-                        <p class="mb-1 text-light opacity-75 small">C, Python, JavaScript</p>
-                        <p class="mb-0 text-light opacity-75 small">Java, C#, SQL</p>
-                    </div>
+            <!-- Column 1: Core Languages -->
+            <div class="col d-flex align-items-start">
+                <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
+                    <img src="./public/home-images/cpu.png" alt="Tech Stack" height="26">
                 </div>
-
-                <!-- Column 2: Tools & Environments -->
-                <div class="col d-flex align-items-start">
-                    <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
-                        <img src="./public/home-images/framework.png" alt="Frameworks" height="26px">
-                    </div>
-                    <div>
-                        <h3 class="fs-5 fw-bold mb-1 mb-md-2 text-white">Tools &amp; Env</h3>
-                        <p class="mb-1 text-light opacity-75 small">Node.js, Express.js</p>
-                        <p class="mb-0 text-light opacity-75 small">Git, Linux, Bootstrap</p>
-                    </div>
+                <div>
+                    <h3 class="fs-5 fw-bold mb-2 text-white">Tech Stack</h3>
+                    <ul class="list-unstyled mb-0 text-light opacity-75 small">
+                        <li>• C</li>
+                        <li>• Python</li>
+                        <li>• JavaScript</li>
+                        <li>• Java</li>
+                        <li>• C#</li>
+                        <li>• SQL</li>
+                    </ul>
                 </div>
-
-                <!-- Column 3: AI & Workflows -->
-                <div class="col d-flex align-items-start">
-                    <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
-                        <img src="./public/home-images/ai.svg" alt="AI &amp; Modern Workflows" height="26px">
-                    </div>
-                    <div>
-                        <h3 class="fs-5 fw-bold mb-1 mb-md-2 text-white">AI Workflows</h3>
-                        <p class="mb-1 text-light opacity-75 small">Gemini, Prompt Eng.</p>
-                        <p class="mb-0 text-light opacity-75 small">AI-Assisted Dev</p>
-                    </div>
-                </div>
-
-                <!-- Column 4: Soft Skills -->
-                <div class="col d-flex align-items-start">
-                    <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
-                        <img src="./public/home-images/check.png" alt="Soft Skills" height="26px">
-                    </div>
-                    <div>
-                        <h3 class="fs-5 fw-bold mb-1 mb-md-2 text-white">Soft Skills</h3>
-                        <p class="mb-1 text-light opacity-75 small">Analytical Thinker</p>
-                        <p class="mb-0 text-light opacity-75 small">Team Player</p>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- Column 2: Tools & Environments -->
+            <div class="col d-flex align-items-start">
+                <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
+                    <img src="./public/home-images/framework.png" alt="Frameworks" height="26">
+                </div>
+                <div>
+                    <h3 class="fs-5 fw-bold mb-2 text-white">Tools &amp; Env</h3>
+                    <ul class="list-unstyled mb-0 text-light opacity-75 small">
+                        <li>• Node.js</li>
+                        <li>• Express.js</li>
+                        <li>• Git</li>
+                        <li>• Linux</li>
+                        <li>• Bootstrap</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 3: AI & Workflows -->
+            <div class="col d-flex align-items-start">
+                <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
+                    <img src="./public/home-images/ai.svg" alt="AI &amp; Modern Workflows" height="26">
+                </div>
+                <div>
+                    <h3 class="fs-5 fw-bold mb-2 text-white">AI Workflows</h3>
+                    <ul class="list-unstyled mb-0 text-light opacity-75 small">
+                        <li>• Gemini</li>
+                        <li>• Prompt Engineering</li>
+                        <li>• AI-Assisted Dev</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 4: Soft Skills -->
+            <div class="col d-flex align-items-start">
+                <div class="icon-square d-inline-flex me-2 me-md-3 flex-shrink-0">
+                    <img src="./public/home-images/check.png" alt="Soft Skills" height="26">
+                </div>
+                <div>
+                    <h3 class="fs-5 fw-bold mb-2 text-white">Soft Skills</h3>
+                    <ul class="list-unstyled mb-0 text-light opacity-75 small">
+                        <li>• Analytical Thinker</li>
+                        <li>• Team Player</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 
     <!-- PORTFOLIO SECTION -->
     <div class="album bg-body-tertiary" id="projects">
