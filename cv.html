@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liad Firouz - CV</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -30,18 +30,20 @@
         }
 
         /* Make the placeholder container sticky at the top */
-#header-placeholder {
-    position: sticky;
-    top: 0;
-    z-index: 1030;
-    width: 100%;
-}
+        #header-placeholder {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            width: 100%;
+        }
 
-/* Ensure the header inside fills the space without extra margin breaking the layout */
-#header-placeholder .sticky-modern-header {
-    position: relative; /* Let the placeholder handle the stickiness */
-    margin-bottom: 0 !important; /* Move margin to your hero section instead */
-}
+        /* Ensure the header inside fills the space without extra margin breaking the layout */
+        #header-placeholder .sticky-modern-header {
+            position: relative;
+            /* Let the placeholder handle the stickiness */
+            margin-bottom: 0 !important;
+            /* Move margin to your hero section instead */
+        }
 
         .custom-nav-link:not(.active-page):hover {
             background-color: #000;
@@ -144,13 +146,16 @@
         /* ========================================== */
         @media (max-width: 768px) {
             .cv-container {
-                flex-direction: column; /* Stack vertically on mobile */
+                flex-direction: column;
+                /* Stack vertically on mobile */
             }
+
             .cv-sidebar {
                 width: 100%;
                 min-width: 100%;
                 padding: 2rem;
             }
+
             .cv-main {
                 width: 100%;
                 padding: 2rem;
@@ -166,10 +171,12 @@
             width: 900px !important;
             max-width: none !important;
         }
+
         .pdf-export-mode .cv-sidebar {
             width: 32% !important;
             min-width: 32% !important;
         }
+
         .pdf-export-mode .cv-main {
             width: 68% !important;
         }
@@ -185,7 +192,8 @@
 
         <div class="text-center mb-4">
             <h1 class="display-5 fw-bold mb-1">Liad Firouz</h1>
-            <p class="lead text-muted fs-6 mb-0">B.Sc. CS Student | Cyber Security Specialization & Software Development</p>
+            <p class="lead text-muted fs-6 mb-0">B.Sc. CS Student | Cyber Security Specialization & Software Development
+            </p>
         </div>
 
         <div class="cv-wrapper">
@@ -194,13 +202,57 @@
 
                 <!-- Sidebar Section -->
                 <div class="cv-sidebar">
+                    
                     <h5 class="fw-bold mb-3">Contact Info</h5>
                     <ul class="list-unstyled mb-4 small">
-                        <li class="mb-2"><strong>Email:</strong><br><a href="mailto:Liad.Firouz@gmail.com">Liad.Firouz@gmail.com</a></li>
-                        <li class="mb-2"><strong>Phone:</strong><br>053-9803335</li>
-                        <li class="mb-2"><strong>LinkedIn:</strong><br><a href="https://linkedin.com/in/liad-firouz" target="_blank">linkedin.com/in/liad-firouz</a></li>
-                        <li class="mb-2"><strong>GitHub:</strong><br><a href="https://github.com/LiadFirouz" target="_blank">github.com/LiadFirouz</a></li>
-                        <li class="mb-2"><strong>Portfolio:</strong><br><a href="https://liadfirouz.github.io/Portfolio/">Portfolio Website</a></li>
+                        <!-- Email -->
+                        <li class="mb-2">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <img src="./public/cv-images/email.png" alt="Email" width="16" height="16">
+                                <strong>Email:</strong>
+                            </div>
+                            <a href="mailto:Liad.Firouz@gmail.com"
+                                class="text-decoration-none ms-4">Liad.Firouz@gmail.com</a>
+                        </li>
+
+                        <!-- Phone -->
+                        <li class="mb-2">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <img src="./public/cv-images/telephone.png" alt="Phone" width="16" height="16">
+                                <strong>Phone:</strong>
+                            </div>
+                            <a href="tel:0539803335" class="text-decoration-none ms-4">053-9803335</a>
+                        </li>
+
+                        <!-- LinkedIn -->
+                        <li class="mb-2">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <img src="./public/cv-images/linkedin.png" alt="LinkedIn" width="16" height="16">
+                                <strong>LinkedIn:</strong>
+                            </div>
+                            <a href="https://linkedin.com/in/liad-firouz" target="_blank" rel="noopener noreferrer"
+                                class="text-decoration-none ms-4">linkedin.com/in/liad-firouz</a>
+                        </li>
+
+                        <!-- GitHub -->
+                        <li class="mb-2">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <img src="./public/cv-images/github.png" alt="GitHub" width="16" height="16">
+                                <strong>GitHub:</strong>
+                            </div>
+                            <a href="https://github.com/LiadFirouz" target="_blank" rel="noopener noreferrer"
+                                class="text-decoration-none ms-4">github.com/LiadFirouz</a>
+                        </li>
+
+                        <!-- Portfolio -->
+                        <li class="mb-2">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <img src="./public/cv-images/web.png" alt="Portfolio" width="16" height="16">
+                                <strong>Portfolio:</strong>
+                            </div>
+                            <a href="https://liadfirouz.github.io/Portfolio/" target="_blank" rel="noopener noreferrer"
+                                class="text-decoration-none ms-4">liadfirouz.github.io/Portfolio</a>
+                        </li>
                     </ul>
 
                     <h5 class="fw-bold mb-3">Skills</h5>
@@ -250,7 +302,8 @@
                         <ul class="small mb-3 ps-3">
                             <li>Pursuing a B.Sc. in Computer Science</li>
                             <li><strong>Specialization:</strong> Cyber Security</li>
-                            <li><strong>Relevant Coursework:</strong> Linear Algebra, Database Systems, Data Structures</li>
+                            <li><strong>Relevant Coursework:</strong> Linear Algebra, Database Systems, Data Structures
+                            </li>
                         </ul>
 
                         <h6 class="fw-bold mb-0">Engineering Technician Certificate – Ort Singalovski</h6>
@@ -271,7 +324,8 @@
 
                         <h6 class="fw-bold mb-1">Network Anomaly Detection (Python & Machine Learning)</h6>
                         <ul class="small mb-0 ps-3">
-                            <li>Developed an analytical engine using an Isolation Forest model to detect suspicious packet anomalies.</li>
+                            <li>Developed an analytical engine using an Isolation Forest model to detect suspicious
+                                packet anomalies.</li>
                             <li>Processed and visualized network traffic datasets to extract statistical features.</li>
                         </ul>
                     </div>
@@ -352,14 +406,14 @@
             .catch(err => console.error(err));
 
         // PDF Generation and Direct Download Logic
-        document.getElementById('download-btn').addEventListener('click', function() {
+        document.getElementById('download-btn').addEventListener('click', function () {
             const btn = this;
             const originalText = btn.innerHTML;
             btn.innerHTML = 'Generating PDF...';
             btn.disabled = true;
 
             const element = document.getElementById('cv-content');
-            
+
             // Force desktop layout before capturing (fixes PDF formatting on mobile)
             element.classList.add('pdf-export-mode');
 
@@ -372,14 +426,14 @@
                 }).then(canvas => {
                     const imgData = canvas.toDataURL('image/jpeg', 1.0);
                     const { jsPDF } = window.jspdf;
-                    
+
                     const pdf = new jsPDF('p', 'mm', 'a4');
                     const pdfWidth = pdf.internal.pageSize.getWidth();
                     const pdfHeight = pdf.internal.pageSize.getHeight();
-                    
+
                     const imgWidth = pdfWidth;
                     const imgHeight = (canvas.height * pdfWidth) / canvas.width;
-                    
+
                     let heightLeft = imgHeight;
                     let position = 0;
 
